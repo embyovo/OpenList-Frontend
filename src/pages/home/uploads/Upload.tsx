@@ -296,7 +296,7 @@ const Upload = () => {
                 {t("home.conflict_policy.overwrite_existing")}
               </Checkbox>
               <Checkbox
-                checked={rapid()}
+                checked={!rapid()}
                 onChange={() => {
                   setRapid(!rapid())
                 }}
