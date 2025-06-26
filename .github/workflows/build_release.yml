@@ -76,13 +76,24 @@ jobs:
       - name: Update package.json and commit
         if: github.event_name == 'workflow_dispatch'
         run: |
-          jq --arg version "${{ steps.semver.outputs.version }}" '.version = $version' package.json > package.json.tmp && mv package.json.tmp package.json
-          git add package.json
-          git commit -m "chore: release v${{ steps.semver.outputs.version }}" --no-verify
-          git push
+          # 保存原始版本号用于比较
+          ORIGINAL_VERSION=$(jq -r '.version' package.json)
 
-          # For local build, needn't push, the tag will be created by `gh release create`
-          git tag "v${{ steps.semver.outputs.version }}" -m "Release v${{ steps.semver.outputs.version }}"
+          # 更新版本号
+          jq --arg version "${{ steps.semver.outputs.version }}" '.version = $version' package.json > package.json.tmp && mv package.json.tmp package.json
+
+          # 检查版本号是否有变化
+          NEW_VERSION=$(jq -r '.version' package.json)
+          if [ "$ORIGINAL_VERSION" != "$NEW_VERSION" ]; then
+            echo "Version updated from $ORIGINAL_VERSION to $NEW_VERSION"
+            git add package.json
+            git commit -m "chore: release v${{ steps.semver.outputs.version }}" --no-verify
+            git push
+          else
+            echo "Version already up to date ($ORIGINAL_VERSION)"
+            # 创建标签但不提交，因为没有实际更改
+            git tag "v${{ steps.semver.outputs.version }}" -m "Release v${{ steps.semver.outputs.version }}"
+          fi
 
       - name: Get current tag
         id: get_current_tag
