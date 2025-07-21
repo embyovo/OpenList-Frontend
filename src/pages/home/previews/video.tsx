@@ -3,7 +3,7 @@ import { createSignal, onCleanup, onMount } from "solid-js"
 import { useRouter, useLink } from "~/hooks"
 import { getMainColor, getSettingBool, objStore } from "~/store"
 import { ObjType } from "~/types"
-import { ext, pathDir, pathJoin } from "~/utils"
+import { ext, fsGet, pathDir, pathJoin, r } from "~/utils"
 import Artplayer from "artplayer"
 import { type Option } from "artplayer/types/option"
 import { type Setting } from "artplayer/types/setting"
@@ -295,6 +295,7 @@ const Preview = () => {
   }
   onMount(() => {
     player = new Artplayer(option)
+
     let auto_fullscreen: boolean
     switch (searchParams["auto_fullscreen"]) {
       case "true":
@@ -307,6 +308,72 @@ const Preview = () => {
     player.on("ready", () => {
       player.fullscreen = auto_fullscreen
     })
+    if (subtitle.length == 0) {
+      function find(str: string, cha: any, num: number) {
+        let x = str.indexOf(cha)
+        for (let i = 0; i < num; i++) {
+          x = str.indexOf(cha, x + 1)
+        }
+        return x
+      }
+      function setSubtitle(result: any, type: string) {
+        const defaultSubtitle = result.data
+        if (
+          enableEnhanceAss &&
+          ext(defaultSubtitle.name).toLowerCase() === "ass"
+        ) {
+          option.plugins?.push(
+            artplayerPluginAss({
+              // debug: true,
+              subUrl:
+                option.url.slice(0, find(option.url, "/", 2)) +
+                "/d" +
+                subtitlePath +
+                "." +
+                type +
+                "?sign=" +
+                result.data.sign,
+            }),
+          )
+        } else {
+          option.subtitle = {
+            url:
+              option.url.slice(0, find(option.url, "/", 2)) +
+              "/d" +
+              subtitlePath +
+              "." +
+              type +
+              "?sign=" +
+              result.data.sign,
+            type: ext(result.data.name),
+          }
+        }
+
+        player.destroy()
+        player = new Artplayer(option)
+      }
+      let subtitlePath =
+        useRouter()
+          .pathname()
+          .slice(0, useRouter().pathname().lastIndexOf("/") + 1) +
+        ".subtitle/" +
+        objStore.obj.name.slice(0, objStore.obj.name.lastIndexOf("."))
+      fsGet(subtitlePath + ".srt").then((result) => {
+        if (result.code == 200) {
+          setSubtitle(result, "srt")
+        }
+      })
+      fsGet(subtitlePath + ".ass").then((result) => {
+        if (result.code == 200) {
+          setSubtitle(result, "ass")
+        }
+      })
+      fsGet(subtitlePath + ".vtt").then((result) => {
+        if (result.code == 200) {
+          setSubtitle(result, "vtt")
+        }
+      })
+    }
     player.on("video:ended", () => {
       if (!autoNext()) return
       next_video()
