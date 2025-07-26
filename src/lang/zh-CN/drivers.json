@@ -23,8 +23,8 @@
   },
   "115 Open": {
     "access_token": "访问令牌",
-    "limit_rate,string": "限制速率",
-    "limit_rate,string-tips": "限制所有 api 请求率 ([limit]r/1s)",
+    "limit_rate": "限制速率",
+    "limit_rate-tips": "限制所有 api 请求率 ([limit]r/1s)",
     "order_by": "排序",
     "order_bys": {
       "file_name": "文件名称",
@@ -54,12 +54,12 @@
       "android": "安卓",
       "ios": "IOS",
       "qandroid": "Qandroid",
-      "tv": "Tv",
+      "tv": "TV",
       "web": "网页",
-      "wechatmini": "Wechatmini"
+      "wechatmini": "微信小程序"
     },
     "qrcode_token": "二维码令牌",
-    "qrcode_token-tips": "需要 QR 代码令牌和 cookie 中的一个",
+    "qrcode_token-tips": "需要 二维码令牌和 Cookie 中的一个",
     "receive_code": "提取码",
     "receive_code-tips": "115 分享链接提取码",
     "root_folder_id": "根文件夹ID",
@@ -120,7 +120,7 @@
     "username": "用户名"
   },
   "189CloudPC": {
-    "family_id": "Family id",
+    "family_id": "家庭ID",
     "family_transfer": "家庭转移",
     "no_use_ocr": "不使用OCR",
     "order_by": "排序",
@@ -153,6 +153,30 @@
     "username": "用户名",
     "validate_code": "验证码"
   },
+  "189CloudTV": {
+    "access_token": "访问令牌",
+    "family_id": "家庭ID",
+    "order_by": "排序",
+    "order_bys": {
+      "filename": "文件名",
+      "filesize": "文件大小",
+      "lastOpTime": "修改时间"
+    },
+    "order_direction": "排序方式",
+    "order_directions": {
+      "asc": "升序",
+      "desc": "降序"
+    },
+    "rapid_upload": "秒传",
+    "root_folder_id": "根文件夹ID",
+    "type": "类型",
+    "types": {
+      "family": "家庭云",
+      "personal": "个人云"
+    },
+    "upload_thread": "上传线程",
+    "upload_thread-tips": "1<=线程<=32"
+  },
   "Alias": {
     "download_concurrency": "下载并发",
     "download_concurrency-tips": "需要启用代理",
@@ -183,6 +207,11 @@
     "root_folder_id": "根文件夹ID"
   },
   "AliyundriveOpen": {
+    "alipan_type": "阿里云盘类型",
+    "alipan_types": {
+      "alipanTV": "阿里云盘 TV",
+      "default": "默认"
+    },
     "api_url_address": "API 地址",
     "client_id": "客户端ID",
     "client_id-tips": "如果你没有，请留空",
@@ -321,6 +350,7 @@
     "enable_folder_size": "启用文件夹大小",
     "enable_thumb": "启用缩略图",
     "enable_version_upload": "启用版本上传",
+    "hide_uploading": "隐藏正在上传中的文件",
     "order_by": "排序",
     "order_bys": {
       "created_at": "创建时间",
@@ -571,7 +601,8 @@
     "share_id": "分享ID",
     "share_id-tips": "最后一个/共享链接后的部分",
     "share_pwd": "分享密码",
-    "share_pwd-tips": "分享链接的密码"
+    "share_pwd-tips": "分享链接的密码",
+    "show_root_folder": "显示根文件夹"
   },
   "Local": {
     "mkdir_perm": "创建文件夹权限",
@@ -723,6 +754,7 @@
   },
   "Quark": {
     "cookie": "Cookie",
+    "only_list_video_file": "仅列出视频文件",
     "order_by": "排序",
     "order_bys": {
       "file_name": "文件名称",
@@ -735,7 +767,9 @@
       "asc": "升序",
       "desc": "降序"
     },
-    "root_folder_id": "根文件夹ID"
+    "root_folder_id": "根文件夹ID",
+    "use_transcoding_address": "使用转码地址",
+    "use_transcoding_address-tips": "您可以观看经过转码的视频，并支持302重定向"
   },
   "QuarkOpen": {
     "access_token": "访问令牌",
@@ -763,6 +797,11 @@
   },
   "QuarkTV": {
     "device_id": "设备id",
+    "link_method": "链接方法",
+    "link_methods": {
+      "download": "下载",
+      "streaming": "流式"
+    },
     "query_token": "查询令牌",
     "query_token-tips": "不要编辑",
     "refresh_token": "刷新令牌",
@@ -815,6 +854,15 @@
     "root_folder_path": "根文件夹路径",
     "token": "令牌",
     "username": "用户名"
+  },
+  "Strm": {
+    "encodePath": "编码路径",
+    "encodePath-tips": "在 Strm 文件中编码路径",
+    "filterFileTypes": "过滤文件类型",
+    "filterFileTypes-tips": "支持 Strm 文件的后缀名",
+    "paths": "路径",
+    "siteUrl": "站点 URL",
+    "siteUrl-tips": "Strm 文件的前缀 URL"
   },
   "Teambition": {
     "cookie": "Cookie",
@@ -881,8 +929,8 @@
     },
     "root_folder_id": "根文件夹ID",
     "safe_password": "安全密码",
-    "use_fluent_play": "Use fluent play",
-    "use_fluent_play-tips": "use fluent play for offline download,only magnet links supported",
+    "use_fluent_play": "使用流畅播接口",
+    "use_fluent_play-tips": "使用流畅播接口进行离线下载，只支持磁力链接",
     "use_video_url": "使用视频url",
     "username": "用户名"
   },
@@ -924,8 +972,8 @@
     },
     "timestamp": "时间戳",
     "timestamp-tips": "签名类型是验证码签名,此为必填项",
-    "use_fluent_play": "Use fluent play",
-    "use_fluent_play-tips": "use fluent play for offline download,only magnet links supported",
+    "use_fluent_play": "使用流畅播接口",
+    "use_fluent_play-tips": "使用流畅播接口进行离线下载，只支持磁力链接",
     "use_video_url": "使用视频url",
     "user_agent": "用户代理",
     "username": "用户名",
@@ -1008,13 +1056,9 @@
     "username": "用户名",
     "username-tips": "登录类型是用户名,此为必填项"
   },
-  "Trainbit": {
-    "AUSHELLPORTAL": "AUSHELLPORTAL",
-    "apikey": "Apikey",
-    "root_folder_id": "根文件夹ID"
-  },
   "UC": {
     "cookie": "Cookie",
+    "only_list_video_file": "仅列出视频文件",
     "order_by": "排序",
     "order_bys": {
       "file_name": "文件名称",
@@ -1027,10 +1071,17 @@
       "asc": "升序",
       "desc": "降序"
     },
-    "root_folder_id": "根文件夹ID"
+    "root_folder_id": "根文件夹ID",
+    "use_transcoding_address": "使用转码地址",
+    "use_transcoding_address-tips": "您可以观看经过转码的视频，并支持302重定向"
   },
   "UCTV": {
     "device_id": "设备id",
+    "link_method": "链接方法",
+    "link_methods": {
+      "download": "下载",
+      "streaming": "流式"
+    },
     "query_token": "查询令牌",
     "query_token-tips": "不要编辑",
     "refresh_token": "刷新令牌",
@@ -1138,6 +1189,7 @@
       "alert": "如果此驱动无法工作，你可以尝试使用“天翼网盘客户端”驱动。"
     },
     "189CloudPC": {},
+    "189CloudTV": {},
     "Alias": {},
     "Aliyundrive": {
       "alert": "在这个驱动中可能有一个死循环的错误。\n已废弃，不再维护，并将在未来的版本中删除。\n我们建议使用官方支持的阿里云盘Open。"
@@ -1189,6 +1241,7 @@
     "SFTP": {},
     "SMB": {},
     "Seafile": {},
+    "Strm": {},
     "Teambition": {},
     "Terabox": {},
     "Thunder": {},
@@ -1197,7 +1250,6 @@
     "ThunderExpert": {},
     "ThunderX": {},
     "ThunderXExpert": {},
-    "Trainbit": {},
     "UC": {},
     "UCTV": {},
     "USS": {},
@@ -1210,15 +1262,16 @@
   },
   "drivers": {
     "115 Cloud": "115 网盘",
-    "115 Open": "115 开放平台",
-    "115 Share": "115 云盘分享",
-    "123 Open": "123 Open",
+    "115 Open": "115 网盘开放平台",
+    "115 Share": "115 网盘分享",
+    "123 Open": "123云盘开放平台",
     "123Pan": "123云盘",
     "123PanLink": "123云盘直链",
     "123PanShare": "123云盘分享",
     "139Yun": "中国移动云盘",
     "189Cloud": "天翼云盘",
     "189CloudPC": "天翼云盘客户端",
+    "189CloudTV": "天翼云盘 TV",
     "Alias": "别名",
     "Aliyundrive": "阿里云盘",
     "AliyundriveOpen": "阿里云盘 (Oauth2)",
@@ -1241,7 +1294,7 @@
     "GitHub Releases": "GitHub 发行",
     "GoogleDrive": "谷歌云盘",
     "GooglePhoto": "谷歌相册",
-    "HalalCloud": "HhalCloud",
+    "HalalCloud": "HalalCloud",
     "ILanZou": "蓝奏云优享版",
     "IPFS API": "IPFS API",
     "KodBox": "可道云",
@@ -1255,32 +1308,32 @@
     "NeteaseMusic": "网易云音乐",
     "Onedrive": "OneDrive",
     "Onedrive Sharelink": "Onedrive 分享链接",
-    "OnedriveAPP": "OnedriveAPP",
+    "OnedriveAPP": "Onedrive APP",
     "OpenList": "OpenList",
     "PikPak": "PikPak",
     "PikPakShare": "PikPak分享",
     "Quark": "夸克",
-    "QuarkOpen": "QuarkOpen",
+    "QuarkOpen": "夸克网盘 Open",
     "QuarkTV": "Quark TV",
     "S3": "对象存储",
     "SFTP": "SFTP",
     "SMB": "SMB",
     "Seafile": "Seafile",
+    "Strm": "Strm",
     "Teambition": "Teambition网盘",
     "Terabox": "Terabox",
     "Thunder": "迅雷",
-    "ThunderBrowser": "Thunder浏览器",
-    "ThunderBrowserExpert": "Thunder浏览器专家",
+    "ThunderBrowser": "迅雷浏览器",
+    "ThunderBrowserExpert": "迅雷浏览器专家版",
     "ThunderExpert": "迅雷专家版",
     "ThunderX": "迅雷X",
     "ThunderXExpert": "迅雷X专家版",
-    "Trainbit": "Trainbit",
-    "UC": "UC",
-    "UCTV": "UC TV",
+    "UC": "UC网盘",
+    "UCTV": "UC网盘 TV",
     "USS": "又拍云存储",
     "UrlTree": "地址树",
     "Virtual": "虚拟存储",
-    "WebDav": "WebDav",
+    "WebDav": "WebDAV",
     "WeiYun": "腾讯微云",
     "WoPan": "联通云盘",
     "YandexDisk": "Yandex网盘"
