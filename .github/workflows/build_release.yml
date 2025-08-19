@@ -1,3 +1,21 @@
+# This workflow is used to create a (pre-)release build of the OpenList frontend.
+#
+# This will:
+#
+# - Update the `package.json` version to the specified version (when triggered
+#   by `workflow_dispatch`), commit the changes and tag it.
+# - Upload the release assets to GitHub.
+# - Publish the package to npm.
+#
+# # Usage
+#
+# This workflow can be triggered by:
+#
+# - Pushing a tag that matches the pattern `v[0-9]+.[0-9]+.[0-9]+*` (semver format).
+# - Manually via the GitHub Actions UI with a version input.
+#
+# To create (pre-)release builds, we recommend that you use the `workflow_dispatch`.
+
 name: Release Build
 
 on:
@@ -37,6 +55,7 @@ jobs:
           else
             echo "is_pre_release=true" >> $GITHUB_OUTPUT
           fi
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -53,6 +72,7 @@ jobs:
         run: |
           git config user.name "The OpenList Bot"
           git config user.email "bot@openlist.team"
+
       - name: Update package.json and commit
         if: github.event_name == 'workflow_dispatch'
         run: |
@@ -79,9 +99,11 @@ jobs:
           # Remove existing tag `rolling`, since `rolling` should always point to the latest commit
           # This is necessary to avoid conflicts with the changelog generation
           git tag -d rolling 2>/dev/null || true
+
           # Get the current tag
           CURRENT_TAG=$(git describe --tags --abbrev=0)
           echo "current_tag=$CURRENT_TAG" >> $GITHUB_OUTPUT
+
           # Temporarily remove all pre-release tags (tags containing '-' / '+')
           # This prevents them from interfering with changelog generation
           PRE_RELEASE_TAGS=$(git tag -l | grep -E "(-|\+)" || true)
@@ -89,15 +111,18 @@ jobs:
             echo "Temporarily removing pre-release tags: $PRE_RELEASE_TAGS"
             echo "$PRE_RELEASE_TAGS" | xargs -r git tag -d
           fi
+
           # Add back the current tag if is a pre-release
           # Should not add `-f`, as it will overwrite the existing tag
           if [[ "${{ steps.check_pre_release.outputs.is_pre_release }}" == "true" ]]; then
             git tag "$CURRENT_TAG" -m "Release $CURRENT_TAG"
           fi
+
       - name: Generate changelog
         id: generate_changelog
         run: |
           npx changelogithub --output ${{ github.workspace }}-CHANGELOG.txt || echo "" > ${{ github.workspace }}-CHANGELOG.txt
+
       - name: Build Release
         run: |
           chmod +x build.sh
