@@ -1,0 +1,7 @@
+{
+  "webdav": "WebDav",
+    "webdav_enabled": "启用或关闭WebDav端口",
+    "webdav_enabled-tips": "开启按钮可为WebDav服务单独分配一个端口(重启后生效)",
+    "webdav_listen": "WebDav服务监听端口",
+    "webdav_listen-tips": "为WebDav服务单独分配的端口"
+}

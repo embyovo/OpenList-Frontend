@@ -1,5 +1,6 @@
 {
   "sidemenu": {
+    "webdav": "WebDav",
     "dashboard": "控制面板",
     "settings": "设置",
     "site": "站点",
@@ -9,6 +10,7 @@
     "other": "其他",
     "users": "用户",
     "storages": "存储",
+    "shares": "分享",
     "metas": "元信息",
     "profile": "个人资料",
     "about": "关于",

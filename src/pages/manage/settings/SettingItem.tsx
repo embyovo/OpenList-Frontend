@@ -20,7 +20,7 @@ import {
 } from "@hope-ui/solid"
 import { For, Match, Show, Switch } from "solid-js"
 import { useT } from "~/hooks"
-import { Flag, SettingItem, Type } from "~/types"
+import { Flag, Group, SettingItem, Type } from "~/types"
 import { TiDelete } from "solid-icons/ti"
 
 export type ItemProps = SettingItem & {
@@ -36,7 +36,9 @@ const Item = (props: ItemProps) => {
     <FormControl w={props.w ?? "100%"} display="flex" flexDirection="column">
       <Show when={!props.hideLabel}>
         <FormLabel for={props.key} display="flex" alignItems="center">
-          {t(`settings.${props.key}`)}
+          {props.group === Group.WEBDAV
+            ? t(`webdav.${props.key}`)
+            : t(`settings.${props.key}`)}
           <Show when={props.flag === Flag.DEPRECATED}>
             <Icon
               ml="$2"
@@ -110,7 +112,11 @@ const Item = (props: ItemProps) => {
         </Match>
       </Switch>
       <FormHelperText>
-        {props.help ? t(`settings.${props.key}-tips`) : ""}
+        {props.help
+          ? t(
+              `${props.group === Group.WEBDAV ? "webdav" : "settings"}.${props.key}-tips`,
+            )
+          : ""}
       </FormHelperText>
     </FormControl>
   )

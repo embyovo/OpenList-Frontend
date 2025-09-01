@@ -14,6 +14,7 @@ import {
   BsBucket,
   BsHddNetwork,
   BsArrowLeftRight,
+  BsWind,
 } from "solid-icons/bs"
 import { FiLogIn } from "solid-icons/fi"
 import { SiMetabase } from "solid-icons/si"
@@ -50,6 +51,12 @@ export const side_menu_items: SideMenuItem[] = [
         icon: BsWindow,
         to: "/@manage/settings/site",
         component: () => <CommonSettings group={Group.SITE} />,
+      },
+      {
+        title: "webdav.webdav",
+        icon: BsWind,
+        to: "/@manage/settings/webdav",
+        component: () => <CommonSettings group={Group.WEBDAV} />,
       },
       {
         title: "manage.sidemenu.style",

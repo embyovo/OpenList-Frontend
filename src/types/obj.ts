@@ -22,6 +22,11 @@ export interface Obj {
   path: string
 }
 
+export interface WebDavState {
+  enable: boolean // 接口返回的 enable 是布尔值
+  listen: string // 接口返回的 listen（如 ":5245"）
+}
+
 export type StoreObj = Obj & {
   selected?: boolean
 }
