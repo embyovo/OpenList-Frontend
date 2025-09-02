@@ -1,9 +1,7 @@
 {
   "webdav": "WebDav",
-  "sidemenu": {
     "webdav_enabled": "Enable or close WebDav ports",
     "webdav_enabled-tips": "The On button assigns a separate port to the WebDav service(effective after restart)",
     "webdav_listen": "WebDav service listening port",
     "webdav_listen-tips": "Individually assigned ports for WebDav services"
-  }
 }
