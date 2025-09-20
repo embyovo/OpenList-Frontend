@@ -20,6 +20,7 @@ export interface Obj {
   thumb: string
   type: ObjType
   path: string
+  mount_details?: MountDetails
 }
 
 export interface WebDavState {
@@ -51,6 +52,12 @@ export type ArchiveMeta = {
   }
   raw_url: string
   sign: string
+}
+
+export type MountDetails = {
+  total_space?: number
+  free_space?: number
+  driver_name: string
 }
 
 export type ArchiveList = PageResp<Obj>
