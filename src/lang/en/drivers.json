@@ -118,7 +118,9 @@
       "personal_new": "Personal new"
     },
     "use_large_thumbnail": "Use large thumbnail",
-    "use_large_thumbnail-tips": "Enable to use large thumbnail for images"
+    "use_large_thumbnail-tips": "Enable to use large thumbnail for images",
+    "user_domain_id": "User domain id",
+    "user_domain_id-tips": "ud_id in Cookie, fill in to show disk usage"
   },
   "189Cloud": {
     "cookie": "Cookie",
@@ -193,6 +195,7 @@
     "upload_thread-tips": "1\u003c=thread\u003c=32"
   },
   "Alias": {
+    "details_pass_through": "Details pass through",
     "download_concurrency": "Download concurrency",
     "download_concurrency-tips": "Need to enable proxy",
     "download_part_size": "Download part size",
@@ -360,7 +363,12 @@
     "user_name": "User name"
   },
   "Chunk": {
+    "chunk_large_file_only": "Chunk large file only",
+    "chunk_large_file_only-tips": "chunk only if file size \u003e part_size",
+    "chunk_prefix": "Chunk prefix",
+    "chunk_prefix-tips": "the prefix of chunk folder",
     "custom_ext": "Custom ext",
+    "num_list_workers": "Num list workers",
     "part_size": "Part size",
     "part_size-tips": "bytes",
     "remote_path": "Remote path",
@@ -570,6 +578,7 @@
     "chunk_size-tips": "chunk size while uploading (unit: MB)",
     "client_id": "Client id",
     "client_secret": "Client secret",
+    "disable_disk_usage": "Disable disk usage",
     "order_by": "Order by",
     "order_by-tips": "such as: folder,name,modifiedTime",
     "order_direction": "Order direction",
@@ -669,6 +678,29 @@
     "video_thumb_pos": "Video thumb pos",
     "video_thumb_pos-tips": "The position of the video thumbnail. If the value is a number (integer ot floating point), it represents the time in seconds. If the value ends with '%', it represents the percentage of the video duration."
   },
+  "MediaFire": {
+    "chunk_size": "Chunk size",
+    "cookie": "Cookie",
+    "cookie-tips": "Required for navigation",
+    "limit_rate": "Limit rate",
+    "limit_rate-tips": "limit all api request rate ([limit]r/1s)",
+    "order_by": "Order by",
+    "order_bys": {
+      "name": "Name",
+      "size": "Size",
+      "time": "Time"
+    },
+    "order_direction": "Order direction",
+    "order_directions": {
+      "asc": "Asc",
+      "desc": "Desc"
+    },
+    "root_folder_path": "Root folder path",
+    "session_token": "Session token",
+    "session_token-tips": "Required for MediaFire API",
+    "upload_threads": "Upload threads",
+    "upload_threads-tips": "concurrent upload threads"
+  },
   "MediaTrack": {
     "access_token": "Access token",
     "order_by": "Order by",
@@ -728,6 +760,7 @@
     "client_secret": "Client secret",
     "custom_host": "Custom host",
     "custom_host-tips": "Custom host for onedrive download link",
+    "disable_disk_usage": "Disable disk usage",
     "is_sharepoint": "Is sharepoint",
     "redirect_uri": "Redirect uri",
     "refresh_token": "Refresh token",
@@ -753,6 +786,7 @@
     "client_secret": "Client secret",
     "custom_host": "Custom host",
     "custom_host-tips": "Custom host for onedrive download link",
+    "disable_disk_usage": "Disable disk usage",
     "email": "Email",
     "region": "Region",
     "regions": {
@@ -858,6 +892,16 @@
     "link_methods": {
       "download": "Download",
       "streaming": "Streaming"
+    },
+    "order_by": "Order by",
+    "order_bys": {
+      "file_name": "File name",
+      "updated_at": "Updated at"
+    },
+    "order_direction": "Order direction",
+    "order_directions": {
+      "asc": "Asc",
+      "desc": "Desc"
     },
     "query_token": "Query token",
     "query_token-tips": "don't edit'",
@@ -1155,6 +1199,16 @@
       "download": "Download",
       "streaming": "Streaming"
     },
+    "order_by": "Order by",
+    "order_bys": {
+      "file_name": "File name",
+      "updated_at": "Updated at"
+    },
+    "order_direction": "Order direction",
+    "order_directions": {
+      "asc": "Asc",
+      "desc": "Desc"
+    },
     "query_token": "Query token",
     "query_token-tips": "don't edit'",
     "refresh_token": "Refresh token",
@@ -1297,6 +1351,7 @@
     "Lanzou": {},
     "LenovoNasShare": {},
     "Local": {},
+    "MediaFire": {},
     "MediaTrack": {},
     "Mega_nz": {},
     "Misskey": {},
@@ -1382,6 +1437,7 @@
     "Lanzou": "Lanzou",
     "LenovoNasShare": "LenovoNasShare",
     "Local": "Local",
+    "MediaFire": "MediaFire",
     "MediaTrack": "MediaTrack",
     "Mega_nz": "Mega nz",
     "Misskey": "Misskey",
