@@ -19,7 +19,6 @@ export interface Obj {
   sign?: string
   thumb: string
   type: ObjType
-  path: string
   mount_details?: MountDetails
 }
 
@@ -30,6 +29,11 @@ export interface WebDavState {
 
 export type StoreObj = Obj & {
   selected?: boolean
+}
+
+export type ArchiveObj = Obj & {
+  inner_path?: string
+  archive?: Obj
 }
 
 export type RenameObj = {
@@ -57,6 +61,7 @@ export type ArchiveMeta = {
 export type MountDetails = {
   total_space?: number
   free_space?: number
+  used_space?: number
   driver_name: string
 }
 
