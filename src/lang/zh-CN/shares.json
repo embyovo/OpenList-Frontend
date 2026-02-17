@@ -25,12 +25,12 @@
     "size": "大小",
     "modified": "修改时间"
   },
-  "order_direction": "排序方式",
+  "order_direction": "排序方向",
   "order_directions": {
     "asc": "升序",
     "desc": "降序"
   },
-  "extract_folder": "文件夹排序方式",
+  "extract_folder": "文件夹顺序",
   "extract_folders": {
     "front": "文件夹置顶",
     "back": "文件夹置底"
